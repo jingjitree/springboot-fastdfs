@@ -97,10 +97,9 @@ public class FastDFSClient {
      * @throws IOException
      */
     public byte[] downloadFile(String fileUrl) throws IOException {
-        String group = fileUrl.substring(0, fileUrl.indexOf("/"));
-        String path = fileUrl.substring(fileUrl.indexOf("/") + 1);
+        StorePath storePath = StorePath.parseFromUrl(fileUrl);
         DownloadByteArray downloadByteArray = new DownloadByteArray();
-        byte[] bytes = storageClient.downloadFile(group, path, downloadByteArray);
+        byte[] bytes = storageClient.downloadFile(storePath.getGroup(), storePath.getPath(), downloadByteArray);
         return bytes;
     }
 
