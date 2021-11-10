@@ -68,8 +68,10 @@ public class FastDFSClient {
      * 封装图片完整URL地址
      */
     private String getResAccessUrl(StorePath storePath) {
-        String fileUrl = webServer.getWebServerUrl() + storePath.getFullPath();
-        return fileUrl;
+        String webServerUrl = webServer.getWebServerUrl();
+        if (!webServerUrl.endsWith("/"))
+            webServerUrl += "/";
+        return webServerUrl + storePath.getFullPath();
     }
 
     /**

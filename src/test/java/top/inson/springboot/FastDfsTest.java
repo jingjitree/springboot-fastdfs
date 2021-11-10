@@ -20,7 +20,13 @@ public class FastDfsTest {
 
     }
 
-
+    @Test
+    public void handler(){
+        String webServerUrl = "http://upload.jxsliot.cn";
+        if (!webServerUrl.endsWith("/"))
+            webServerUrl += "/";
+        log.info(webServerUrl);
+    }
 
 
 
